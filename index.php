@@ -64,6 +64,6 @@ if ( 'jeremyfelt.com' === $data->repository->name ) {
 
 	if ( $continue_deploy ) {
 		// initiate scary stuff here and cross fingers
-		exec( '/srv/www/deploy-stage/jf_deploy.sh' );
+		exec( '/srv/www/deploy-stage/deploy-jeremyfelt.com.sh' );
 	}
 }
