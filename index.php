@@ -62,7 +62,8 @@ if ( 'jeremyfelt.com' === $data->repository->name ) {
 
 	if ( $continue_deploy ) {
 		// initiate scary stuff here and cross fingers
-		exec( 'cd /srv/www/deploy-stage; ./jf_deploy.sh' );
+		$return_string = exec( '/srv/www/deploy-stage/jf_deploy.sh' );
+		error_log( $return_string );
 	} else {
 		error_log( 'Deploy Skip: No Deploy Attempt Found' );
 	}
