@@ -27,3 +27,25 @@ $data = json_decode( $_POST['payload'] );
 if ( is_null( $data ) )
 	die();
 
+// We should just go home at this point
+if ( ! isset( $data->repository->website->name ) )
+	die();
+
+/**
+ * Now get down to business and assume the rest of the json -> object
+ * structure that we're expecting is there
+ */
+if ( 'jeremyfelt.com' === $data->repository->website->name ) {
+	foreach( $data->repository->commits as $commit ) {
+		if ( 'master' === $commit->branch ) {
+			if ( strpos( $commit->message, '#deploy' ) ) {
+				$continue_deploy = true;
+				continue;
+			}
+		}
+	}
+
+	if ( $continue_deploy ) {
+		// initiate script here
+	}
+}
