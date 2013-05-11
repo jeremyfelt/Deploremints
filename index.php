@@ -38,7 +38,7 @@ if ( is_null( $data ) ) {
 }
 
 // We should just go home at this point
-if ( ! isset( $data->repository->website->name ) ) {
+if ( ! isset( $data->repository->name ) ) {
 	error_log( 'Deploy Attempt Failed: Unexpected Object Structure' );
 	die();
 }
@@ -47,7 +47,7 @@ if ( ! isset( $data->repository->website->name ) ) {
  * Now get down to business and assume the rest of the json -> object
  * structure that we're expecting is there
  */
-if ( 'jeremyfelt.com' === $data->repository->website->name ) {
+if ( 'jeremyfelt.com' === $data->repository->name ) {
 	foreach( $data->repository->commits as $commit ) {
 		if ( 'master' === $commit->branch ) {
 			if ( strpos( $commit->message, '#deploy' ) ) {
