@@ -6,8 +6,8 @@
 
 After a `json_decode()` of `$_POST['payload']`, we get an object with the following information.
 
-`stdClass Object
-(
+```
+stdClass Object
     [repository] => stdClass Object
         (
             [website] =>
@@ -57,4 +57,5 @@ After a `json_decode()` of `$_POST['payload']`, we get an object with the follow
         )
 
     [canon_url] => https://bitbucket.org
-)`
+)
+```
