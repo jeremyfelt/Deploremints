@@ -47,6 +47,8 @@ if ( ! isset( $data->repository->name ) ) {
  * Now get down to business and assume the rest of the json -> object
  * structure that we're expecting is there
  */
+
+// Check for jeremyfelt.com deploy requests...
 if ( 'jeremyfelt.com' === $data->repository->name ) {
 
 	$continue_deploy = false;
@@ -62,11 +64,6 @@ if ( 'jeremyfelt.com' === $data->repository->name ) {
 
 	if ( $continue_deploy ) {
 		// initiate scary stuff here and cross fingers
-		$return_string = exec( '/srv/www/deploy-stage/jf_deploy.sh' );
-		error_log( $return_string );
-	} else {
-		error_log( 'Deploy Skip: No Deploy Attempt Found' );
+		exec( '/srv/www/deploy-stage/jf_deploy.sh' );
 	}
-} else {
-	error_log( 'Deploy Skip: Mismatched Domain' );
 }
