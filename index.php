@@ -46,6 +46,7 @@ if ( 'jeremyfelt.com' === $data->repository->website->name ) {
 	}
 
 	if ( $continue_deploy ) {
-		// initiate script here
+		// initiate scary stuff here and cross fingers
+		exec( 'cd /srv/www/deploy-stage; ./jf_deploy.sh' );
 	}
 }
