@@ -48,6 +48,9 @@ if ( ! isset( $data->repository->name ) ) {
  * structure that we're expecting is there
  */
 if ( 'jeremyfelt.com' === $data->repository->name ) {
+
+	$continue_deploy = false;
+
 	foreach( $data->repository->commits as $commit ) {
 		if ( 'master' === $commit->branch ) {
 			if ( strpos( $commit->message, '#deploy' ) ) {
