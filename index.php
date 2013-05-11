@@ -51,7 +51,7 @@ if ( 'jeremyfelt.com' === $data->repository->name ) {
 
 	$continue_deploy = false;
 
-	foreach( $data->repository->commits as $commit ) {
+	foreach( $data->commits as $commit ) {
 		if ( 'master' === $commit->branch ) {
 			if ( strpos( $commit->message, '#deploy' ) ) {
 				$continue_deploy = true;
